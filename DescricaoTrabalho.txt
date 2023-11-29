@@ -1,0 +1,40 @@
+Seja o seguinte diagrama de estados da UML (https://www.baeldung.com/cs/uml-statediagrams) para o controle de uma lâmpada com temporizador para desligamento:
+
+Para o modelo, assumir que:
+• timer é uma contagem decrescente no intervalo de 5 (valor inicial) a 0 (valor de timeout);
+• button corresponde a um evento externo ao sistema de botão pressionado;
+• timeout corresponde a um evento de término da contagem do timer;
+• turn_on é uma ação que corresponde a ligar uma lâmpada;
+• turn_off é uma ação que corresponde a desligar uma lâmpada;
+• start_timer é uma ação que corresponde a iniciar a contagem do timer.
+
+
+Etapa 1:
+Complete o seguinte código de acordo com as informações da modelagem:
+
+MODULE main
+IVAR
+    button: boolean;
+VAR
+    timer: 0..5;
+    estado: {s0, s1};
+ASSIGN
+    init(estado):= s0;
+    next(estado) := case
+        ____________ 
+        esac;
+    next(timer) := case
+        ____________
+        esac;
+DEFINE
+    lampada := estado = s1;
+    timeout := timer = 0;
+
+Etapa 2: 
+Defina fórmulas temporais em LTL para as seguintes propriedades:
+• A lâmpada sempre irá ligar se o botão for pressionado.
+• Uma vez que a lâmpada esteja ligada, se não for pressionado o botão, ela não voltará a estar 
+ligada.
+
+Etapa 3:
+Verifique se as propriedades valem para seu modelo

@@ -1,0 +1,25 @@
+2 -> b)
+
+Fórmulas temporais em LTL:
+
+- A lâmpada sempre irá ligar se o botão for pressionado:
+Resposta:G(interruptorPressionado -> F lampadaLigada)
+
+- Uma vez que a lâmpada esteja ligada, se não for pressionado o botão, ela não voltará a estar 
+ligada:
+Resposta: G(lampadaLigada -> X(interruptorPressionado ∨ F(¬lampadaLigada)))
+
+
+2 -> c)
+
+Para o código, então:
+Fórmulas:
+- G(interruptor -> (F estado = ligada))
+- G(estado = ligada -> X(interruptor | F(estado != ligada)))
+
+NuSMV > check_ltlspec -p "G(interruptor -> (F estado = ligada))"
+-- specification  G (interruptor ->  F estado = ligada)  is true
+
+NuSMV > check_ltlspec -p "G(estado = ligada -> X(interruptor | F(estado != ligada)))"        
+-- specification  G (estado = ligada ->  X (interruptor |  F estado != ligada))  is true
+NuSMV > 
