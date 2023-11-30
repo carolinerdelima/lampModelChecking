@@ -12,8 +12,8 @@ IVAR
     interruptor: boolean;
 VAR    
     timer: 0..5; -- Intervalo de 0 a 5. Contagem decrescente, inicialmente definida em 5
-    estado: {desligada, ligada}; -- Os estados possíveis do sistema (desligada e ligada)
-ASSIGN
+    estado: {desligada, ligada, queimada}; -- Adicionando o estado "queimada"
+
     init(estado):= desligada;
 
     next(estado) :=
@@ -22,6 +22,8 @@ ASSIGN
             estado = ligada & timeout: desligada; -- Desliga a lâmpada quando o temporizador atinge zero
             estado = desligada & !interruptor: desligada; -- Mantém a lâmpada desligada enquanto o interruptor não for acionado
             estado = ligada & !interruptor & timeout: desligada; -- Desliga a lâmpada apenas quando o temporizador atinge zero
+            -- ver qual ta certo 
+            -- estado = ligada & !timeout & !interruptor: ligada; -- Mantém a lâmpada ligada enquanto o temporizador não atingir zero e o interruptor estiver ligado
             estado = ligada & !interruptor: ligada; -- Mantém a lâmpada ligada enquanto o temporizador não atingir zero
             TRUE: estado;
         esac;
@@ -31,8 +33,10 @@ ASSIGN
             estado = desligada & !interruptor: 5; -- Se o interruptor estiver desligado, mantém o temporizador em 5
             estado = ligada & !timeout: timer - 1; -- Se o temporizador não estiver em zero, decrementa o temporizador
             estado = ligada & timeout: 5; -- Se o temporizador estiver em zero, reinicia o temporizador
+            estado = queimada: 5; -- Mantém o temporizador em 5 quando a lâmpada está queimada
             TRUE: timer;
         esac;
 DEFINE
     lampada := estado = ligada; -- True se o estado atual (estado) for igual a ligada, e false caso contrário
-    timeout := timer = 0; -- True se o valor do timer) for igual a 0, e false caso contrário
+    timeout := timer = 0; -- True se o valor do timer for igual a 0, e false caso contrário
+    queimada := estado = queimada; -- True se a lâmpada está queimada, e false caso contrário

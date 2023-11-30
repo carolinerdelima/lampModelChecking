@@ -35,4 +35,4 @@ ASSIGN
         esac;
 DEFINE
     lampada := estado = ligada; -- True se o estado atual (estado) for igual a ligada, e false caso contrário
-    timeout := timer = 0; -- True se o valor do timer) for igual a 0, e false caso contrário
+    timeout := timer = 0; -- True se o valor do timer for igual a 0, e false caso contrário
