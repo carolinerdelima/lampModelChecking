@@ -1,0 +1,23 @@
+3 -> c)
+
+Verifique através de fórmulas LTL ou CTL, utilizando o NuSMV/NuXMV/Fasten, as seguintes 
+propriedades:
+
+• Uma lâmpada pode estar ligada no futuro.
+• Uma lâmpada eventualmente pode permanecer sempre queimada.
+• Uma lâmpada não pode passar de desligada para queimada.
+• Uma lâmpada pode voltar a estar ligada depois de queimada.
+
+Fórmulas temporais em LTL:
+
+- Uma lâmpada pode estar ligada no futuro.
+Resposta: F G lampada
+
+- Uma lâmpada eventualmente pode permanecer sempre queimada.
+Resposta: G (estado = queimada -> F G queimada)
+
+- Uma lâmpada não pode passar de desligada para queimada.
+Resposta: G (estado = desligada -> X estado != queimada)
+
+- Uma lâmpada pode voltar a estar ligada depois de queimada.
+Resposta: G (estado = queimada -> F G estado = ligada)

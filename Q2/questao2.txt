@@ -22,4 +22,3 @@ NuSMV > check_ltlspec -p "G(interruptor -> (F estado = ligada))"
 
 NuSMV > check_ltlspec -p "G(estado = ligada -> X(interruptor | F(estado != ligada)))"        
 -- specification  G (estado = ligada ->  X (interruptor |  F estado != ligada))  is true
-NuSMV > 
