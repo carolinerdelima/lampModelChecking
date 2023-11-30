@@ -1,5 +1,7 @@
 Seja o seguinte diagrama de estados da UML (https://www.baeldung.com/cs/uml-statediagrams) para o controle de uma lâmpada com temporizador para desligamento:
 
+Imagem contida em UML.png
+
 Para o modelo, assumir que:
 • timer é uma contagem decrescente no intervalo de 5 (valor inicial) a 0 (valor de timeout);
 • button corresponde a um evento externo ao sistema de botão pressionado;

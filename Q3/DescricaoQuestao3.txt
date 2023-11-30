@@ -1,0 +1,18 @@
+Retome o exercício do Modelo de Kripke para a representação de uma lâmpada que pode ser 
+ligada/desligada e que também pode queimar.
+
+Etapa 1: 
+Codifique um modelo como um arquivo NuSMV/NuXMV.
+
+Etapa 2:
+Através da ferramenta Fasten, edite o model através do diagrama de estados e compare o código 
+gerado para o NuSMV/NuXMV a partir do diagrama de estados com o código criado no exercício 
+“a”.
+
+Etapa 3: 
+Verifique através de fórmulas LTL ou CTL, utilizando o NuSMV/NuXMV/Fasten, as seguintes 
+propriedades:
+• Uma lâmpada pode estar ligada no futuro.
+• Uma lâmpada eventualmente pode permanecer sempre queimada.
+• Uma lâmpada não pode passar de desligada para queimada.
+• Uma lâmpada pode voltar a estar ligada depois de queimada

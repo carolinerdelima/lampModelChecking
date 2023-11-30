@@ -23,7 +23,7 @@ NuSMV -int
 
 3. No prompt do NuSMV, execute os comandos flatten_hierarchy e encode_variables para simplificar a hierarquia do modelo e codificar as variáveis:
 ```
-NuSMV > read_model -i main.smv
+NuSMV > read_model -i lampada.smv
 NuSMV > flatten_hierarchy
 NuSMV > encode_variables
 ```
