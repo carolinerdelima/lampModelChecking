@@ -18,13 +18,13 @@ VAR
 
     next(estado) :=
         case
-            estado = desligada & interruptor: ligada; -- Liga a lâmpada quando o interruptor é acionado
+            estado = desligada & interruptor & !queimada: ligada; -- Liga a lâmpada quando o interruptor é acionado e a lâmpada não estiver queimada
             estado = ligada & timeout: desligada; -- Desliga a lâmpada quando o temporizador atinge zero
             estado = desligada & !interruptor: desligada; -- Mantém a lâmpada desligada enquanto o interruptor não for acionado
             estado = ligada & !interruptor & timeout: desligada; -- Desliga a lâmpada apenas quando o temporizador atinge zero
-            -- ver qual ta certo 
-            -- estado = ligada & !timeout & !interruptor: ligada; -- Mantém a lâmpada ligada enquanto o temporizador não atingir zero e o interruptor estiver ligado
             estado = ligada & !interruptor: ligada; -- Mantém a lâmpada ligada enquanto o temporizador não atingir zero
+            estado = ligada & !timeout & interruptor & !queimada: queimada; -- Só queima se estiver ligada e o temporizador não estiver em zero e o interruptor estiver ligado e não estiver queimada
+            estado = queimada: queimada; -- Lâmpada permanece queimada
             TRUE: estado;
         esac;
     next(timer) := 
